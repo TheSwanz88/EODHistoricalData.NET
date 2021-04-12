@@ -44,6 +44,9 @@ namespace EODHistoricalData.NET
 
         [JsonProperty("Financials")]
         public Financials Financials { get; set; }
+        
+        [JsonProperty("Holders")]
+        public Holders Holders { get; set; }
     }
 
     public partial class Earnings
@@ -481,6 +484,41 @@ namespace EODHistoricalData.NET
 
         [JsonProperty("EnterpriseValueEbitda")]
         public decimal? EnterpriseValueEbitda { get; set; }
+    }
+    
+    public partial class Holders
+    {
+        [JsonProperty("Institutions")]
+        public Dictionary<string, Holder> Institutions { get; set; }
+
+        [JsonProperty("Funds")]
+        public Dictionary<string, Holder> Funds { get; set; }
+    }
+
+    public partial class Holder
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("date")]
+        public string DateString { get; set; }
+
+        [JsonProperty("totalShares")]
+        public double? TotalShares { get; set; }
+
+        [JsonProperty("totalAssets")]
+        public double? TotalAssets { get; set; }
+
+        [JsonProperty("currentShares")]
+        public int CurrentShares { get; set; }
+
+        [JsonProperty("change")]
+        public double? Change { get; set; }
+
+        [JsonProperty("change_p")]
+        public double? change_p { get; set; }
+
+        public DateTime? Date { get; set; }
     }
 
     public partial class FundamentalStock
